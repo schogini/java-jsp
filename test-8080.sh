@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo $@
+echo "IMAGE: $2 BUILD: $1"
+
 docker network create tmp-net > log.txt 2>&1
 docker run --rm -d --name tmp-web --net tmp-net -e WEB=$1 $2 >> log.txt 2>&1
 
